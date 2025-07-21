@@ -1,0 +1,15 @@
+# App details
+spring.application.name=Auth Service
+server.port=8080
+logging.level.org.springframework.security=DEBUG
+logging.level.org.springframework.security.oauth2=TRACE
+
+
+# Frontend Url
+app.frontend.url=http://localhost:4200
+
+# Security Config :
+spring.security.oauth2.client.registration.google.client-id=CLIENT_ID
+spring.security.oauth2.client.registration.google.client-secret=CLIENT_SECRET
+spring.security.oauth2.client.registration.google.scope=openid,profile,email
+spring.security.oauth2.client.registration.google.redirect-uri=APP_REDIRECT_URI
