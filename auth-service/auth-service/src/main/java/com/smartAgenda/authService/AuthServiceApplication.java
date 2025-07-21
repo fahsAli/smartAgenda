@@ -1,6 +1,6 @@
 package com.smartAgenda.authService;
 
-import com.smartAgenda.authService.config.SslUtil;
+import com.smartAgenda.authService.utils.SslUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

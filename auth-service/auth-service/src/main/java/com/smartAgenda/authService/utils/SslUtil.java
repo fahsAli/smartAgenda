@@ -1,4 +1,4 @@
-package com.smartAgenda.authService.config;
+package com.smartAgenda.authService.utils;
 
 import javax.net.ssl.*;
 import java.security.SecureRandom;
