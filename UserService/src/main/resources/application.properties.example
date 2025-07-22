@@ -1,0 +1,20 @@
+# App details
+spring.application.name=user-service
+server.port=8081
+logging.level.org.springframework.security=DEBUG
+
+# DATABASE CONFIGURATION
+spring.datasource.url=jdbc:postgresql://localhost:5432/<DATABASE>
+spring.datasource.username=USERNAME
+spring.datasource.password=PWD
+
+# JPA / Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+spring.datasource.hikari.pool-name=HikariPool-UserService
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+logging.level.com.zaxxer.hikari=DEBUG
+logging.level.org.hibernate.SQL=DEBUG
