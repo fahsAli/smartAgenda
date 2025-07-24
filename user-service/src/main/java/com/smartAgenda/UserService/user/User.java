@@ -10,6 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @AllArgsConstructor
@@ -51,20 +52,21 @@ public class User {
     @Builder.Default
     private Status status = Status.ACTIVE;
 
+    @Setter
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @Setter
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-
-    public User(String givenName, String familyName, String email) {
+    public User(String givenName, String familyName, String fullName, String email) {
         this.givenName = givenName;
         this.familyName = familyName;
         this.email = email.toLowerCase();
-        this.fullName = givenName + " " + familyName;
+        this.fullName = fullName;
         this.status = Status.ACTIVE;
     }
 }
