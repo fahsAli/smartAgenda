@@ -34,7 +34,7 @@ public class UserController {
             Claims claims = jwtUtil.parseToken(token);
             log.debug("Token parsed successfully, creating/updating user");
 
-            User user = userService.createOrUpdateUser(claims);
+            UserDTO user = userService.createOrUpdateUser(claims);
             log.info("User sync completed successfully for email: {}", user.getEmail());
 
             return ResponseEntity.ok(user);

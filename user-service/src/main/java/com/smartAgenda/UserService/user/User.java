@@ -1,13 +1,16 @@
 package com.smartAgenda.UserService.user;
 
+import com.smartAgenda.UserService.role.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,8 +19,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString(exclude = {"id"})
+@ToString(exclude = {"roles"})
 @EqualsAndHashCode(of = {"email"})
+@EntityListeners(AuditingEntityListener.class)
 public class User {
 
     @Id
@@ -69,5 +73,13 @@ public class User {
         this.fullName = fullName;
         this.status = Status.ACTIVE;
     }
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles;
 }
 
